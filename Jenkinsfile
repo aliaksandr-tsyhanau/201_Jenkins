@@ -1,18 +1,11 @@
-stage("Prepare container") {
+pipeline {
+  agent any
+
   stages {
-    stage('Build') {
+    stage("Build") {
       steps {
-        checkout master
-        sh 'sbt compile'
-        echo 'Compiled'
+        sh 'echo "hello world"'
       }
-    }
-    stage('Build') {
-          steps {
-            checkout master
-            sh 'sbt testOnly'
-            echo 'Tested'
-          }
     }
   }
 }
