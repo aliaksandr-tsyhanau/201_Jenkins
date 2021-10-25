@@ -7,7 +7,7 @@ object AppLauncher extends SuperSpark {
 
   def main(args: Array[String]): Unit = {
 
-    val expediaDf = avroHelper.getBatchesFromAvro(spark, "/totalAdultsCountByCheckIn")
+    val expediaDf = avroHelper.getBatchesFromAvro(spark, "/expedia")
 
 
     val totalAdultsCountByCheckIn = avroHelper.countAdultsByCheckin(expediaDf)
