@@ -13,11 +13,13 @@ class AvroHelper(spark: SparkSession) {
       .agg(sum("srch_adults_cnt").as("total_adults_cnt"))
       .orderBy("srch_ci")
 
-  def getBatchesFromAvro(spark: SparkSession, pathToSource: String): DataFrame =
+  def getBatchesFromAvro(spark: SparkSession, pathToSource: String): DataFrame = {
+    println("ERROR+++++++++++++++++++++++++++++++++++++++++++++++++++")
     spark.read
       .format("avro")
       .schema(getExpediaSchema)
       .load(getClass.getResource(pathToSource).getPath)
+  }
 
   def getExpediaSchema(): StructType =
     new StructType(Array(
