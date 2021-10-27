@@ -6,22 +6,16 @@ pipeline {
          }
     }
     stages {
-        stage('prepare') {
+        stage('compile') {
             steps {
-            echo "sbt prepare--------------------------------------------------"
-                sh 'sbt -Dsbt.global.base=.sbt -Dsbt.boot.directory=.sbt -Dsbt.ivy.home=.ivy2'
-            }
-        }
-        stage('build') {
-            steps {
-            echo "sbt build--------------------------------------------------"
-                sh 'sbt build'
+            echo "sbt compile--------------------------------------------------"
+                sh 'sbt -Dsbt.global.base=.sbt -Dsbt.boot.directory=.sbt -Dsbt.ivy.home=.ivy2 compile'
             }
         }
         stage('test') {
             steps {
             echo "sbt testOnly--------------------------------------------------"
-                sh 'sbt testOnly'
+                sh 'sbt -Dsbt.global.base=.sbt -Dsbt.boot.directory=.sbt -Dsbt.ivy.home=.ivy2 testOnly'
             }
         }
 
