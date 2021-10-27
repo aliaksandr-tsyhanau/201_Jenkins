@@ -14,6 +14,7 @@ class AvroHelperTest {
 
   @BeforeEach
   def init(): Unit = {
+    println("init...........................................")
     val ss = new SuperSpark
     spark = ss.getSparkSession
     helper = new AvroHelper(spark)
@@ -21,12 +22,14 @@ class AvroHelperTest {
 
   @Test
   def checkNullCheckInWasSkipped(): Unit = {
+    println("test first...........................................")
     assertTrue(helper.countAdultsByCheckin(getTestExpediaDf())
       .count() == 1)
   }
 
   @Test
   def checkCountIsCorrect(): Unit = {
+    println("test second...........................................")
     assertTrue(helper.countAdultsByCheckin(getTestExpediaDf())
       .select(col("total_adults_cnt")).collect()(0).get(0) == 101
     )
