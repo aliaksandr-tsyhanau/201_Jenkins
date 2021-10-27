@@ -9,7 +9,7 @@ pipeline {
         stage('prepare') {
             steps {
             echo "sbt prepare--------------------------------------------------"
-                sh 'sbt -Dsbt.global.base=.sbt -Dsbt.boot.directory=.sbt -Dsbt.ivy.home=.ivy2 clean test'
+                sh 'sbt -Dsbt.global.base=.sbt -Dsbt.boot.directory=.sbt -Dsbt.ivy.home=.ivy2'
             }
         }
         stage('build') {
@@ -18,5 +18,12 @@ pipeline {
                 sh 'sbt build'
             }
         }
+        stage('test') {
+            steps {
+            echo "sbt testOnly--------------------------------------------------"
+                sh 'sbt testOnly'
+            }
+        }
+
     }
 }
