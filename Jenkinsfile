@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('sbt') {
             steps {
                 echo 'sbt --version'
                 sh 'sbt --version'
