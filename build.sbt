@@ -21,8 +21,8 @@ libraryDependencies += "org.junit.jupiter" % "junit-jupiter-api" % "5.6.2" % Tes
 libraryDependencies += "org.junit.jupiter" % "junit-jupiter-engine" % "5.6.2" % Test
 libraryDependencies += "net.aichler" % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test
 
-Compile / mainClass := Some("com.epam.spark.AppLauncher.scala")
-assembly / mainClass := Some("com.epam.spark.AppLauncher.scala")
+Compile / mainClass := Some("com.cicd_spark.AppLauncher.scala")
+assembly / mainClass := Some("com.cicd_spark.AppLauncher.scala")
 
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs @ _*) => MergeStrategy.discard
