@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'hseeberger/scala-sbt:8u222_1.3.5_2.13.1' } }
+    agent { node1 { image 'hseeberger/scala-sbt:8u222_1.3.5_2.13.1' } }
     stages {
         stage('check sbt') {
             steps {
