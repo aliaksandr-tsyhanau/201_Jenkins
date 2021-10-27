@@ -1,7 +1,9 @@
 node('docker') {
     stage('Build') {
-        docker.image('maven:3.3.3').inside {
-            sh 'mvn --version'
+        docker.image('hseeberger/scala-sbt:8u222_1.3.5_2.13.1').inside {
+           echo 'docker -v...'
+                           sh "docker -v"
         }
     }
 }
+
