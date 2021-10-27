@@ -10,7 +10,7 @@ class SuperSpark {
     .appName("SparkJenkins")
     .master("local[*]")
     .config("spark.sql.session.timeZone", "UTC")
-    .getOrCreate()
+    //.getOrCreate()
   spark.sparkContext.setLogLevel("WARN")
 
   val avroHelper = new AvroHelper(spark)
