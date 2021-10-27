@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-            echo "sbt build--------------------------------------------------"
-                sh 'sbt -Dsbt.global.base=.sbt -Dsbt.boot.directory=.sbt -Dsbt.ivy.home=.ivy2 build'
+            echo "sbt assembly--------------------------------------------------"
+                sh 'sbt -Dsbt.global.base=.sbt -Dsbt.boot.directory=.sbt -Dsbt.ivy.home=.ivy2 assembly'
             }
         }
         stage('test') {
