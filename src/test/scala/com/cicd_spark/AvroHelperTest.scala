@@ -14,6 +14,8 @@ class AvroHelperTest {
 
   @BeforeEach
   def init(): Unit = {
+    import org.apache.hadoop.security.UserGroupInformation
+    UserGroupInformation.setLoginUser(UserGroupInformation.createRemoteUser("tsyhanau"))
     spark = SparkSession
       .builder()
       .appName("SparkJenkins")
