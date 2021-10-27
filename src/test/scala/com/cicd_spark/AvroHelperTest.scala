@@ -5,7 +5,6 @@ import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructT
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.{BeforeEach, Test}
-import org.slf4j.Logger
 
 class AvroHelperTest {
   var spark: SparkSession = null
@@ -14,6 +13,8 @@ class AvroHelperTest {
 
   @BeforeEach
   def init(): Unit = {
+    import org.apache.hadoop.security.UserGroupInformation
+    UserGroupInformation.setLoginUser(UserGroupInformation.createRemoteUser("tsyhanau"))
     val ss = new SuperSpark
     spark = ss.getSparkSession
     helper = new AvroHelper(spark)
