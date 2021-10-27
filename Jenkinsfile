@@ -1,26 +1,15 @@
 pipeline {
-    agent agent1{
-            image 'hseeberger/scala-sbt:8u222_1.3.5_2.13.1'
-    }
+    agent { docker { image 'hseeberger/scala-sbt:8u222_1.3.5_2.13.1' } }
     stages {
-        stage('Check docker') {
+        stage('check sbt') {
             steps {
-                echo 'docker -v...'
-                sh "docker -v"
+                sh 'sbt --version'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'sbt --build'
             }
         }
     }
-        stage('build') {
-             steps {
-                 echo 'Building..'
-                 sh "sbt build"
-             }
-        }
-        stage('Test') {
-            steps {
-                echo 'Building..'
-                sh "sbt testOnly"
-            }
-        }
 }
-
