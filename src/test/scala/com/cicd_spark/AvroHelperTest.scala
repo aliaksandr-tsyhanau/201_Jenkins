@@ -14,11 +14,12 @@ class AvroHelperTest {
 
   @BeforeEach
   def init(): Unit = {
-    println("init...........................................")
-    val ss = new SuperSpark
-    println("init.........2222222222222222222222222...................")
-    spark = ss.getSparkSession
-    println("init.........333333333333333333333333333...........")
+    spark = SparkSession
+      .builder()
+      .appName("SparkJenkins")
+      .master("local[*]")
+      .getOrCreate()
+    spark.sparkContext.setLogLevel("WARN")
     helper = new AvroHelper(spark)
   }
 
