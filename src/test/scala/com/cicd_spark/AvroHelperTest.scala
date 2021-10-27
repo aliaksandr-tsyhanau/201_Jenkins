@@ -16,7 +16,9 @@ class AvroHelperTest {
   def init(): Unit = {
     println("init...........................................")
     val ss = new SuperSpark
+    println("init.........2222222222222222222222222...................")
     spark = ss.getSparkSession
+    println("init.........333333333333333333333333333...........")
     helper = new AvroHelper(spark)
   }
 
