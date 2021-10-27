@@ -4,17 +4,22 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'sbt --version'
+                sh 'sbt --version'
+
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
-                echo 'Testing..'
+                echo 'sbt --build..'
+                sh 'sbt --build..'
+
             }
         }
-        stage('Deploy') {
+        stage('TEST') {
             steps {
-                echo 'Deploying....'
+                echo 'sbt --test..'
+                sh 'sbt --test..'
             }
         }
     }
